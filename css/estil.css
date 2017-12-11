@@ -1,0 +1,178 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+  /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+  box-sizing: border-box; }
+
+body {
+  -webkit-touch-callout: none;
+  /* prevent callout to copy image, etc when tap to hold */
+  -webkit-text-size-adjust: none;
+  /* prevent webkit from resizing text to fit */
+  -webkit-user-select: none;
+  /* prevent copy paste, to allow, change 'none' to 'text' */
+  background-color: #eee;
+  background-attachment: fixed;
+  font-family: "Roboto";
+  font-size: 12px;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  width: 100%; }
+
+header {
+  background-color: #00bcd4;
+  color: white;
+  display: block;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 10px;
+  font-size: 24px; }
+
+header > .nom-event {
+  font-size: 0.5em; }
+
+.float-right {
+  float: right; }
+
+.float-left {
+  float: left; }
+
+footer {
+  background-color: #006064;
+  color: white;
+  display: block;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding: 10px; }
+
+.footer-ok {
+  background-color: #4CAF50; }
+
+.footer-error {
+  background-color: #F44336; }
+
+.footer-warning {
+  background-color: orange; }
+
+.icon-consola {
+  margin-right: 20px; }
+
+#toca {
+  display: block;
+  text-align: center;
+  font-family: "Roboto";
+  padding: 50px 0;
+  width: 100%;
+  height: 100%; }
+
+#toca > .msj {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  margin: 50px 10px;
+  color: white; }
+
+.sel-ev {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  font-size: 1.2em;
+  border: none;
+  border-bottom: 1px solid #00bcd4;
+  border-right: 1px solid #00bcd4;
+  background: none; }
+
+.ventana {
+  display: block;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+  margin: 20px 10px; }
+
+.ventana_1 {
+  display: none; }
+
+input {
+  border-radius: 0px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 3px; }
+
+input#codigo {
+  font-size: 2em;
+  display: block;
+  width: 100%;
+  text-align: center; }
+
+.btn {
+  background-color: #00bcd4;
+  color: white;
+  font-size: 1.3em;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: none;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+  text-align: center; }
+
+.btn-block {
+  display: block;
+  width: 100%; }
+
+.btn-grande {
+  font-size: 1.2rem; }
+
+.btn-icon {
+  margin-right: 20px; }
+
+.btn-manual, .btn-escaner {
+  width: 40%; }
+
+.botonera-principal {
+  display: block; }
+
+.btn-validar {
+  display: none; }
+
+.btn-reset {
+  display: none; }
+
+.btn-devolucion {
+  background-color: orange;
+  display: none; }
+
+.valida-icon {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 10em; }
+
+.valida-datos {
+  font-size: 1.3em;
+  padding: 10px; }
+
+#valida-ok, #valida-error {
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  display: none; }
+
+#valida-ok {
+  background-color: #4CAF50; }
+
+#valida-error {
+  background-color: #F44336; }
+
+.concepto {
+  background: white;
+  border-radius: 10px;
+  color: #000;
+  display: block;
+  margin: 10px;
+  padding: 5px;
+  font-weight: bold; }
+
+.chivato {
+  display: none; }

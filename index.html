@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    
+     
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/estil.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <title>Malalts Ticket</title>
+</head>
+
+<body>
+    
+    <header style='text-align: center'>
+        <i id='reload' class="fa fa-refresh fa-fw float-left" aria-hidden="true"></i>
+        <span class="nom-event">&nbsp</span>
+        <i id='estadistica' class="fa fa-bar-chart fa-fw float-right" style='display: none;' aria-hidden="true"></i>
+
+
+    </header>
+
+    <div id="select" style='display: none;'>
+        <div class="ventana"></div>
+
+    </div>
+    <div class="chivato chivato-evento"></div>
+    <div class="ventana ventana_1">
+        <label >Número de pedido:</label>
+        <input type="text" id="codigo" type="text" placeholder="codigo">
+        <div class="botonera-principal">
+            <button id="escanear" class="btn btn-grande btn-escaner">
+                <i class="fa fa-barcode fa-2x fa-fw " aria-hidden="true"></i><br> SCAN
+            </button>
+            <button id="manual" class="btn btn-grande btn-manual float-right">
+                <i class="fa fa-share fa-fw fa-2x" aria-hidden="true"></i><br> MANUAL
+            </button>
+        </div>
+    <!-- </div>
+    <div class="ventana ventana_2"> -->
+        <button id="validar" class="btn btn-grande btn-block btn-validar">
+            <i class="fa fa-check-circle fa-fw float-left" aria-hidden="true"></i>
+            VALIDAR
+            <i class="fa fa-check-circle fa-fw float-right" aria-hidden="true"></i>
+        </button>
+        <button id="reset" class="btn btn-grande btn-block btn-reset">
+            <i class="fa fa-arrow-circle-left fa-fw float-left" aria-hidden="true"></i>
+            RESET
+            <i class="fa fa-arrow-circle-left fa-fw float-right" aria-hidden="true"></i>
+        </button>
+
+         <div class="text-center">
+            <!-- validació -->
+            <div id='valida-error'>
+                <i class="fa fa-times-circle-o valida-icon" aria-hidden="true"></i>
+                <div class="valida-datos"></div>
+            </div>            
+            <div id='valida-ok'>
+                <i class="fa fa-check-circle-o valida-icon" aria-hidden="true"></i>
+                <div class="valida-datos"></div>
+            </div>
+            <div class="valida"></div>
+        </div>
+        <button id="devolucion" class="btn btn-grande btn-block btn-devolucion">
+            <i class="fa fa-credit-card fa-fw float-left" aria-hidden="true"></i>
+            DEVOLUCIÓN
+            <i class="fa fa-credit-card fa-fw float-right" aria-hidden="true"></i>
+        </button>
+
+    </div>
+    
+
+    <footer>
+        <span id='consola'>Malalts de Festa</span>
+    </footer>
+
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+</html>
