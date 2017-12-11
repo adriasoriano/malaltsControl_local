@@ -62,20 +62,20 @@ function escanear(){
 function enviarCodigo(){
     var code = $('#codigo').val();
     var event = $('.chivato-evento').text();
-  
+
     console.log(code);
 
     // var dato = '{"datos":[{"id_reserva":"69","id_event":"110","id_producte":"14","nom_producte":"Entrada + 2 consumicions","pagat":"35","nom_client":"Adrià Soriano Serrano","tel_client":"680611199","correu_client":"soriano.adria@gmail.com","dni":"47732214S","n_pedido":"170430205430","cod_barras":"170430205430-2","entrado":"0"}]}';
     //     console.log(dato);
 
-    $.post( "http://blog.newmalalts.com/malaltsControl/consulta.php", { code: code , event: event }, function( data ){
+    $.post( "http://192.168.1.16/malaltsControl/consulta.php", { code: code , event: event }, function( data ){
         console.log(data);
         if(data.datos.length==0){
           // error codigo no válido
           $( ".valida-datos" ).html( "<i class='fa fa-exclamation-circle'></i> El código introducido no es válido." );
           $('.botonera-principal').css('display', 'none');
           $('.btn-reset').css('display', 'block');
-          $('#valida-error').css("display", "block"); 
+          $('#valida-error').css("display", "block");
           $('#consola').html("<i class='fa fa-times icon-consola'></i> " + $('#codigo').val()+ " - CÓDIGO INVÁLIDO");
           $('footer').removeClass('footer-ok').addClass('footer-error');
 
@@ -112,62 +112,62 @@ function enviarCodigo(){
             $('footer').removeClass('footer-ok').addClass('footer-warning');
           }
         }
-        
+
 
     }, "json");
 }
 
 function resetear(){
   //resetear sistema
-  $('#codigo').val("");  
+  $('#codigo').val("");
   $('#valida-ok').css("display", "none");
   $('#valida-error').css("display", "none");
   $('.botonera-principal').css('display', 'inline');
   $('.btn-reset').css('display', 'none');
   $('.btn-validar').css('display', 'none');
   $('.btn-devolucion').css('display', 'none');
-          
+
   $( ".valida" ).html( "" );
 }
 function validar(){
   // funcion que actualiza la bbdd a entrado =1
   var event = $('.chivato-evento').text();
   var code2 = $('#codigo').val();
-  $.post( "http://blog.newmalalts.com/malaltsControl/validar.php", { code: code2 , event: event }, function( data ){
+  $.post( "http://192.168.1.16/malaltsControl/validar.php", { code: code2 , event: event }, function( data ){
         console.log(data);
         $('#consola').html("<i class='fa fa-check icon-consola'></i> " + data + " - VÁLIDADO");
         $('footer').removeClass('footer-error').addClass('footer-ok');
 
-  
+
     });
 }
 function devolucion(){
   // funcion que actualiza la bbdd a entrado =2
   var event = $('.chivato-evento').text();
-  
+
   var code3 = $('#codigo').val();
-  $.post( "http://blog.newmalalts.com/malaltsControl/devolucion.php", { code: code3 , event: event }, function( data ){
+  $.post( "http://192.168.1.16/malaltsControl/devolucion.php", { code: code3 , event: event }, function( data ){
         console.log(data);
         $('#consola').html("<i class='fa fa-credit-card icon-consola'></i> " + data + " - DEVOLUCIÓN");
         $('footer').removeClass('footer-error').addClass('footer-warning');
 
-  
+
     });
 }
 
 function mostrarEstadistica(){
   var event = $('.chivato-evento').text();
-  $.post( "http://blog.newmalalts.com/malaltsControl/estadistica.php", { event: event }, function( data ){
+  $.post( "http://192.168.1.16/malaltsControl/estadistica.php", { event: event }, function( data ){
         console.log(data);
         alert(data);
-  
+
     });
 }
 
 function seleccionEvento(){
-  $.post( "http://blog.newmalalts.com/malaltsControl/selectEvent.php", function( data ){
+  $.post( "http://192.168.1.16/malaltsControl/selectEvent.php", function( data ){
     $('#select').css('display', 'block').find('.ventana').html(data);
-    
+
     $('#env-ev').click(function(){
       var event= $('.sel-ev').val();
       var eventArray = event.split("-");
@@ -179,23 +179,23 @@ function seleccionEvento(){
     });
 
   });
-  
+
 }
 
 $().ready(function(){
     //console.log("jquery ready");
     seleccionEvento();
-    
+
     $( "#codigo" ).focus(function() {
         resetear();
     });
-   
+
     $("#manual").click(function(){
         enviarCodigo();
     });
     $("#escanear").click(function(){
         escanear();
-        
+
     });
     $("#validar").click(function(){
         validar();
@@ -217,7 +217,7 @@ $().ready(function(){
       var evento = 110;
       mostrarEstadistica(evento);
     });
-    
-    
+
+
 
 });
