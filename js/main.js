@@ -1,3 +1,7 @@
+// constantes
+const server = "http://192.168.1.15/APPTickets/server.malaltsControl/malaltsControl/";
+
+
 
 var app = {
     // Application Constructor
@@ -68,7 +72,7 @@ function enviarCodigo(){
     // var dato = '{"datos":[{"id_reserva":"69","id_event":"110","id_producte":"14","nom_producte":"Entrada + 2 consumicions","pagat":"35","nom_client":"Adrià Soriano Serrano","tel_client":"680611199","correu_client":"soriano.adria@gmail.com","dni":"47732214S","n_pedido":"170430205430","cod_barras":"170430205430-2","entrado":"0"}]}';
     //     console.log(dato);
 
-    $.post( "http://192.168.1.16/malaltsControl/consulta.php", { code: code , event: event }, function( data ){
+    $.post( server + "consulta.php", { code: code , event: event }, function( data ){
         console.log(data);
         if(data.datos.length==0){
           // error codigo no válido
@@ -95,7 +99,7 @@ function enviarCodigo(){
           }
           else if(cliente.entrado==1){
             //error codigo usado
-            $( ".valida-datos" ).html( "<b>"+cliente.nom_client+"</b><br><i class='fa fa-exclamation-circle'></i> El código introducido ya ha sido usado." );
+            $( ".valida-datos" ).html( "<b>"+cliente.nom_client+"</b><br><i class='fa fa-exclamation-circle'></i> El código introducido ya ha sido usado.<br>"+cliente.registro );
             $('.botonera-principal').css('display', 'none');
             $('.btn-reset').css('display', 'block');
             $('#valida-error').css("display", "block");
@@ -104,7 +108,7 @@ function enviarCodigo(){
           }
           else if(cliente.entrado==2){
             //error codigo usado
-            $( ".valida-datos" ).html( "<b>"+cliente.nom_client+"</b><br><i class='fa fa-exclamation-circle'></i> Ya se ha realizado la devolución previamente para el código introducido." );
+            $( ".valida-datos" ).html( "<b>"+cliente.nom_client+"</b><br><i class='fa fa-exclamation-circle'></i> Ya se ha realizado la devolución previamente para el código introducido.<br>"+cliente.registro );
             $('.botonera-principal').css('display', 'none');
             $('.btn-reset').css('display', 'block');
             $('#valida-error').css("display", "block");
@@ -133,7 +137,7 @@ function validar(){
   // funcion que actualiza la bbdd a entrado =1
   var event = $('.chivato-evento').text();
   var code2 = $('#codigo').val();
-  $.post( "http://192.168.1.16/malaltsControl/validar.php", { code: code2 , event: event }, function( data ){
+  $.post( server +"validar.php", { code: code2 , event: event }, function( data ){
         console.log(data);
         $('#consola').html("<i class='fa fa-check icon-consola'></i> " + data + " - VÁLIDADO");
         $('footer').removeClass('footer-error').addClass('footer-ok');
@@ -146,7 +150,7 @@ function devolucion(){
   var event = $('.chivato-evento').text();
 
   var code3 = $('#codigo').val();
-  $.post( "http://192.168.1.16/malaltsControl/devolucion.php", { code: code3 , event: event }, function( data ){
+  $.post( server +"devolucion.php", { code: code3 , event: event }, function( data ){
         console.log(data);
         $('#consola').html("<i class='fa fa-credit-card icon-consola'></i> " + data + " - DEVOLUCIÓN");
         $('footer').removeClass('footer-error').addClass('footer-warning');
@@ -157,7 +161,7 @@ function devolucion(){
 
 function mostrarEstadistica(){
   var event = $('.chivato-evento').text();
-  $.post( "http://192.168.1.16/malaltsControl/estadistica.php", { event: event }, function( data ){
+  $.post( server +"estadistica.php", { event: event }, function( data ){
         console.log(data);
         alert(data);
 
@@ -165,7 +169,7 @@ function mostrarEstadistica(){
 }
 
 function seleccionEvento(){
-  $.post( "http://192.168.1.16/malaltsControl/selectEvent.php", function( data ){
+  $.post( server +"selectEvent.php", function( data ){
     $('#select').css('display', 'block').find('.ventana').html(data);
 
     $('#env-ev').click(function(){
