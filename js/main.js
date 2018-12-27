@@ -14,8 +14,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        var idtel = device.uuid;
-        alert(idtel);
+        
     },
     // deviceready Event Handler
     //
@@ -29,6 +28,9 @@ var app = {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
+        
+        var idtel = device.uuid;
+        alert(idtel);
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
